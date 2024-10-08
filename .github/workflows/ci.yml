@@ -149,7 +149,7 @@ jobs:
         run: |
           mkdir -p /home/runner/.local/bin
           curl -qL https://github.com/cross-rs/cross/releases/download/v0.2.5/cross-x86_64-unknown-linux-musl.tar.gz  | tar xz -C /home/runner/.local/bin
-          sudo docker build --build-arg ANDROID_SDK=30 --build-arg ANDROID_VERSION=11.0.0_r67 --build-arg ANDROID_NDK=r25b --build-arg CROSS_BASE_IMAGE=ghcr.io/cross-rs/${{ matrix.config.target }}:0.2.5 -t cross:${{ matrix.config.target }} -f cross/docker/Dockerfile.${{ matrix.config.target }} cross/docker
+          sudo docker build --build-arg ANDROID_SDK=30 --build-arg ANDROID_VERSION=11.0.0_r48 --build-arg ANDROID_NDK=r25b --build-arg CROSS_BASE_IMAGE=ghcr.io/cross-rs/${{ matrix.config.target }}:0.2.5 -t cross:${{ matrix.config.target }} -f cross/docker/Dockerfile.${{ matrix.config.target }} cross/docker
           sudo docker build --build-arg CROSS_BASE_IMAGE=cross:${{ matrix.config.target }}: -t cross-rusty_v8:${{ matrix.config.target }} .
 
       - name: Cache
