@@ -12,7 +12,7 @@ RUN \
 	DEBIAN_FRONTEND=noninteractive \
 	echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
 	&& ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-	&& apt-get update && apt-get install -y lsb-release sudo build-essential \
+	&& apt-get update && apt-get install -y lsb-release sudo libc6-dev libc6-dev-arm64-cross libc6-dev-armel-cross libc6-dev-armhf-cross libc6-dev-i386-cross \
 	&& sed -i 's/snapcraft/snapcraftnoinstall/g' /chromium_build/install-build-deps.sh \
 	&& /chromium_build/install-build-deps.sh --no-prompt --no-chromeos-fonts \
 	&& rm -rf /chromium_build \
